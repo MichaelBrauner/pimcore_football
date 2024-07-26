@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    {%~ block title -%}
+        <title>{{ 'Football' }}</title>
+    {%- endblock ~%}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ 'Starwars' }}">
+
+    {% block meta %} {% endblock %}
+
+    {% block favicon -%}
+{#        <link rel="manifest" href="{{ asset('build/favicon/site.webmanifest') }}">#}
+{#        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/favicon/apple-touch-icon.png') }}">#}
+{#        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/favicon/favicon-32x32.png') }}">#}
+{#        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/favicon/favicon-16x16.png') }}">#}
+{#        <link rel="mask-icon" href="{{ asset('build/favicon/safari-pinned-tab.svg') }}" color="#2E3440">#}
+{#        <link rel="shortcut icon" href="{{ asset('build/favicon/favicon.ico') }}">#}
+{#        <meta name="msapplication-TileColor" content="#2e3440">#}
+{#        <meta name="msapplication-config" content="{{ asset('build/favicon/browserconfig.xml') }}">#}
+{#        <meta name="theme-color" content="#2e3440">#}
+    {%- endblock %}
+</head>
+
+<body>{% block body %} {% endblock %}</body>
+</html>
