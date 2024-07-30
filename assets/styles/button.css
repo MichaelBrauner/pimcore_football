@@ -1,0 +1,18 @@
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--football-dark-gray);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--football-white);
+
+    transition: background-color 0.3s;
+    &:hover {
+        background-color: var(--football-dark-green);
+    }
+
+    gap: 0.5rem;
+}

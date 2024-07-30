@@ -1,0 +1,76 @@
+.team-detail {
+    max-width: 80ch;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+
+    #team-detail--banner {
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 0.375rem;
+    }
+
+    #team-detail--player-list-container {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+
+        .team-detail--player-list-item {
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--football-black);
+            border-radius: 0.5rem;
+
+            .team-detail--player-list-item-number {
+                display: flex;
+                width: 4rem;
+                flex-shrink: 0;
+                align-items: center;
+                justify-content: center;
+                border-top-left-radius: 0.375rem;
+                border-bottom-left-radius: 0.375rem;
+                font-size: 1.275rem;
+                font-weight: 500;
+                color: var(--football-gray);
+            }
+
+            .team-detail--player-list-item-content {
+                display: flex;
+                flex: 1;
+                align-items: center;
+                justify-content: space-between;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                border-top-right-radius: 0.375rem;
+                border-bottom-right-radius: 0.375rem;
+                border-bottom: 1px solid var(--football-black);
+                border-right: 1px solid var(--football-black);
+                border-top: 1px solid var(--football-black);
+                background-color: var(--football-white);
+
+                .team-detail--player-list-item-content-wrapper {
+                    flex: 1;
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    line-height: 0.275rem;
+
+                    > p {
+                        color: var(--football-dark-gray);
+
+                        > strong {
+                            color: var(--football-black);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        #team-detail--player-list-container {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+    }
+}

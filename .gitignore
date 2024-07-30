@@ -4,7 +4,6 @@
 # symfony default
 /.web-server-pid
 /config/pimcore/parameters.yml
-/build/
 /phpunit.xml
 /public/bundles/
 
@@ -47,3 +46,13 @@ nbproject
 
 # temp
 .temp
+
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+
+.psalm
+.phpunit.result.cache
+cache
+config/pimcore/google-api-private-key.json.example

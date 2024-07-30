@@ -1,10 +1,9 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+    <div class="container">
+        <h1 class="text-center">{{ 'Fußball' }}</h1>
 
-    {% for i in pimcore_iterate_block(pimcore_block('contentblock')) %}
-        <h2>{{ pimcore_input('subline') }}</h2>
-        {{ pimcore_wysiwyg('content') }}
-    {% endfor %}
+        {% include 'football/team-list.html.twig' %}
+    </div>
 {% endblock %}

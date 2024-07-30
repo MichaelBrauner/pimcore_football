@@ -28,6 +28,15 @@ class CliCommandTest extends KernelTestCase
         $this->cmd = new CommandTester($application->find('list'));
     }
 
+    protected function tearDown(): void
+    {
+        // Reset the constant to avoid side effects.
+        define('PIMCORE_CONSOLE', false);
+
+        restore_exception_handler();
+        parent::tearDown();
+    }
+
     public function testPimcoreCommandsAppearInListing(): void
     {
         $this->cmd->execute([]);

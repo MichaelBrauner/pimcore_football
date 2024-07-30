@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="text-center">
+            {{ team.name }}
+        </h1>
+
+        <article class="team-detail">
+            {{ block('back_button') }}
+
+            <img id="team-detail--banner" class="space-b-md" src="{{ team.teamPhoto }}" alt="{{ team.name }}">
+
+            {{ block('route_button') }}
+
+            <div class="team-detail--player-listi space-b-md">
+                <div id="team-detail--player-list-container">
+                    {% for player in team.players|sort((a, b) => a.number <=> b.number) %}
+                        <div class="team-detail--player-list-item">
+                            <div class="team-detail--player-list-item-number">
+                                {{ player.number }}
+                            </div>
+
+                            <div class="team-detail--player-list-item-content">
+                                <div class="team-detail--player-list-item-content-wrapper">
+                                    <h3>{{ player.name }}</h3>
+                                    <p><strong>Alter:</strong> {{ player.age }}</p>
+                                    <p><strong>Position:</strong> {{ player.position }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {{ block('back_button') }}
+        </article>
+    </div>
+{% endblock %}
+
+{% block back_button %}
+    <a href="{{ path('app:index') }}" class="btn space-b-md">
+        Zurück zur Teamübersicht
+        {% include 'partials/svg/arrow_uturn_left.svg.twig' with {
+            attr: {
+                class: 'svg--sm'
+            }
+        } %}
+    </a>
+{% endblock %}
+
+{% block route_button %}
+    <div class="text-center space-b-md">
+        <a href="https://www.google.com/maps/dir/?api=1&destination={{ team.coordinates.latitude }},{{ team.coordinates.longitude }}"
+           target="_blank" class="btn btn-primary">
+            {% include 'partials/svg/map.svg.twig' with {
+                attr: {
+                    class: 'svg--sm'
+                }
+            } %}
+            Route berechnen
+        </a>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,5 @@
+svg {
+    &.svg--sm {
+        width: 1.5rem;
+    }
+}

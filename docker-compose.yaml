@@ -19,6 +19,8 @@ services:
             - MYSQL_DATABASE=pimcore
             - MYSQL_USER=pimcore
             - MYSQL_PASSWORD=pimcore
+        ports:
+            - "3307:3306"
         healthcheck:
             # The service is considered healthy when:
             # - connection to pimcore db can be established, and

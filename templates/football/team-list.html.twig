@@ -1,0 +1,37 @@
+{% set teams = teams|default([]) %}
+
+
+<article class="team-list">
+
+    {% for team in teams %}
+        <section class="team-list--team-item" aria-labelledby="team-title-{{ loop.index }}">
+            <header>
+                <h2 id="team-title-{{ loop.index }}">{{ team.name }}</h2>
+                <div id="team-list--logo">
+                    <img height="100" src="{{ team.image }}" alt="{{ team.name }}">
+                </div>
+            </header>
+
+            <div class="team-list--content">
+                <p class="space-b-md">{{ team.description }}</p>
+                <p><strong>Coach:</strong> {{ team.coach }}</p>
+                <p><strong>Stadt:</strong> {{ team.city }}</p>
+                <p><strong>Stadion:</strong> {{ team.location }}</p>
+                <p><strong>Gründung:</strong> {{ team.foundedYear }}</p>
+            </div>
+
+            <footer>
+                <a href="{{ path('app:team_detail', { id: team.id }) }}" class="btn">
+                    Details
+                    {% include 'partials/svg/arrow_right.svg.twig' with {
+                        attr: {
+                            class: 'svg--sm'
+                        }
+                    } %}
+                </a>
+            </footer>
+        </section>
+    {% else %}
+        <p>{{ 'No teams found.' }}</p>
+    {% endfor %}
+</article>
