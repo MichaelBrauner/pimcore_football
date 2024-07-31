@@ -16,13 +16,19 @@
                 <p class="space-b-md">{{ team.description }}</p>
                 <p><strong>Coach:</strong> {{ team.coach }}</p>
                 <p><strong>Stadt:</strong> {{ team.city }}</p>
-                <p><strong>Stadion:</strong> {{ team.location }}</p>
+                <p><strong>Stadion:</strong>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination={{ team.coordinates.latitude }},{{ team.coordinates.longitude }}"
+                       target="_blank"
+                    >
+                        {{ team.location }}
+                    </a>
+                </p>
                 <p><strong>Gründung:</strong> {{ team.foundedYear }}</p>
             </div>
 
             <footer>
                 <a href="{{ path('app:team_detail', { id: team.id }) }}" class="btn">
-                    Details
+                    zum Team
                     {% include 'partials/svg/arrow_right.svg.twig' with {
                         attr: {
                             class: 'svg--sm'

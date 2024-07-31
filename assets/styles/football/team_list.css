@@ -33,6 +33,12 @@
     }
 }
 
+.team-list--content {
+    a {
+        color: var(--football-gray);
+    }
+}
+
 @media (max-width: 768px) {
     .team-list--search #team-list--search-form label {
         padding: 0;

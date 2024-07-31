@@ -11,8 +11,6 @@
 
             <img id="team-detail--banner" class="space-b-md" src="{{ team.teamPhoto }}" alt="{{ team.name }}">
 
-            {{ block('route_button') }}
-
             <div class="team-detail--player-listi space-b-md">
                 <div id="team-detail--player-list-container">
                     {% for player in team.players|sort((a, b) => a.number <=> b.number) %}
@@ -48,18 +46,3 @@
         } %}
     </a>
 {% endblock %}
-
-{% block route_button %}
-    <div class="text-center space-b-md">
-        <a href="https://www.google.com/maps/dir/?api=1&destination={{ team.coordinates.latitude }},{{ team.coordinates.longitude }}"
-           target="_blank" class="btn btn-primary">
-            {% include 'partials/svg/map.svg.twig' with {
-                attr: {
-                    class: 'svg--sm'
-                }
-            } %}
-            Route berechnen
-        </a>
-    </div>
-{% endblock %}
-
